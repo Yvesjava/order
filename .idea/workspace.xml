@@ -6,7 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c75dc6a-3ed7-425c-b476-0e83716ae732" name="Default Changelist" comment="" />
+    <list default="true" id="9c75dc6a-3ed7-425c-b476-0e83716ae732" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,10 +81,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
+            <state relative-caret-position="386">
+              <caret line="271" column="53" lean-forward="true" selection-start-line="271" selection-start-column="53" selection-end-line="271" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -122,10 +126,14 @@
       <find>addOrder</find>
       <find>sendMessage</find>
       <find>　　</find>
+      <find>security</find>
     </findStrings>
     <replaceStrings>
       <replace />
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -144,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/static/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/ziyujewelry/vo/Order.java" />
         <option value="$PROJECT_DIR$/src/main/resources/myBatis-config.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="eed84be1-ec49-4b50-a5db-a5711af20932/schema/demo/table/set.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/ziyujewelry/vo/Set.java" />
         <option value="$PROJECT_DIR$/src/main/resources/springMVCConfig.xml" />
@@ -178,6 +185,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ziyujewelry/task/ScheduledGold.java" />
         <option value="$PROJECT_DIR$/src/main/resources/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -269,21 +277,7 @@
               <item name="order" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ziyujewelry" type="462c0819:PsiDirectoryNode" />
-              <item name="task" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="order" type="b2602c69:ProjectViewProjectNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="order" type="b2602c69:ProjectViewProjectNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -553,6 +547,7 @@
       <workItem from="1567561257296" duration="4109000" />
       <workItem from="1567566242293" duration="514000" />
       <workItem from="1567995519412" duration="19000" />
+      <workItem from="1568653090351" duration="353000" />
     </task>
     <servers />
   </component>
@@ -589,7 +584,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186297000" />
+    <option name="totallyTimeSpent" value="186650000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -601,14 +596,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.50157726" side_tool="true" weight="0.17857143" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.4984227" visible="true" weight="0.18364611" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.4984227" visible="true" weight="0.18550107" />
       <window_info id="Structure" order="6" sideWeight="0.50157726" weight="0.17857143" />
       <window_info id="Database" order="7" weight="0.16957104" />
       <window_info id="Maven Projects" order="8" weight="0.14712153" />
@@ -765,9 +761,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context-support/5.0.2.RELEASE/spring-context-support-5.0.2.RELEASE-sources.jar!/org/springframework/mail/javamail/JavaMailSender.java" />
-    <entry file="file://$PROJECT_DIR$/order.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://C:/Program Files/maven/conf/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -786,13 +779,6 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -955,8 +941,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
+        <state relative-caret-position="582">
           <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="271" column="53" lean-forward="true" selection-start-line="271" selection-start-column="53" selection-end-line="271" selection-end-column="53" />
         </state>
       </provider>
     </entry>
