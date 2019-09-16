@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:task="http://www.springframework.org/schema/task"
+	   xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+	    http://www.springframework.org/schema/tx/spring-tx.xsd
+	   	http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.1.xsd">
+
+	<context:component-scan base-package="com.ziyujewelry">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+	<tx:annotation-driven/>
+
+	<context:property-placeholder location="classpath:db.properties" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:mail.properties" ignore-unresolvable="true"/>
+
+
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.smtp.host}"/>
+		<property name="username" value="${mail.smtp.username}"/>
+		<property name="password" value="${mail.smtp.password}"/>
+		<property name="defaultEncoding" value="${mail.smtp.defaultEncoding}"/>
+		<property name="port" value="${mail.smtp.port}"/>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+				<prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+				<prop key="mail.smtp.socketFactory.port">${mail.smtp.socketFactory.port}</prop>
+				<prop key="mail.smtp.port">${mail.smtp.port}</prop>
+				<prop key="mail.smtp.socketFactory.fallback">${mail.smtp.socketFactory.fallback}</prop>
+				<prop key="mail.smtp.socketFactory.class">${mail.smtp.socketFactory.class}</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Spring 整合Mybatis框架 -->
+	<!-- 配置连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="user" value="${jdbc.uid}"/>
+		<property name="password" value="${jdbc.pwd}"/>
+
+		<!-- 当连接池中的连接耗尽的时候c3p0一次同时获取的连接数  -->
+		<property name="acquireIncrement" value="5"/>
+		<!-- 初始连接池大小 -->
+		<property name="initialPoolSize" value="10"/>
+		<!-- 连接池中连接最小个数 -->
+		<property name="minPoolSize" value="5"/>
+		<!-- 连接池中连接最大个数 -->
+		<property name="maxPoolSize" value="20"/>
+	</bean>
+
+	<!-- 创建SqlSessionFactory，同时指定数据源-->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:myBatis-config.xml"/>
+	</bean>
+
+	<!-- Mapper接口扫描 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.ziyujewelry.dao"/>
+	</bean>
+
+	<!-- 配置Spring框架声明式事务管理 -->
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<!-- 配置事务通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="add*" read-only="false"/>
+			<tx:method name="*" isolation="DEFAULT"/>
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 配置AOP事务增强 -->
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.ziyujewelry.service.impl.*ServiceImpl.*(..))"/>
+	</aop:config>
+
+
+
+
+</beans>
